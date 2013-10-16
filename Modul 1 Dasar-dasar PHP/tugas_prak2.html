@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>--> GENERATE TABLE <-- </title>
+<style type="text/css">
+
+</style>
+</head>
+<script language="JavaScript" type="text/javascript">
+
+
+function getmax() 
+{
+	var R = parseInt(document.getElementById('JumlahRow').value);
+	var C = parseInt(document.getElementById('JumlahColum').value);
+	var X = parseInt(document.getElementById('JumlahCell').value);
+	var cellmax = document.getElementById('maxcells');
+	var total = 'N/A';
+	total = R * C;
+	cellmax.value = new String(total);
+
+	if (X > total)
+	{
+		alert('SEL TOTAL Yang Anda Masukkan Terlalu Besar, Nilai Maksimum Cells = ' + total);
+		document.getElementById('CellsTotal').value = new String();
+	}
+}
+
+
+</script>
+
+<body>
+<form method="post" action="tugas_prak2.php">
+
+<h1 align="center" class="style1">Generate Sel Tabel secara Fleksibel</h1>
+<div align="center">
+<table width="327" border="0" bgcolor="#FFFFFF">
+
+<tr bgcolor="#FFFF00">
+<td width="121" style="text-align:center">BARIS</td>
+<td width="196"><strong>= </strong>
+<input name="JumlahRow" type="text" id="JumlahRow" onKeyUp="getmax();" onfocus="this.select();"></td>
+</tr>
+
+<tr bgcolor="#662C91">
+<td style="text-align:center"><label>KOLOM</label></td>
+<td><strong>= </strong>
+<input name="JumlahColum" type="text" id="JumlahColum" onKeyUp="getmax();" onfocus="this.select();"></td>
+</tr>
+
+<tr bgcolor="#FFFF00">
+<td style="text-align:center">SEL TOTAL </td>
+<td><strong>= </strong>
+<input name="JumlahCell" type="text" id="JumlahCell" onKeyUp="getmax();" onFocus="this.select();"></td>
+</tr>
+
+<tr bgcolor="#662C91">
+<td style="text-align:center">MAKS SEL </td>
+<td><strong>= </strong>
+<input name="maxcells" type="text" id="maxcells" disabled="disabled" style="text-align:center"></td>
+</tr>
+
+</table>
+</div>
+
+<div id="apDiv1">
+<input type="submit" name="Generate" value="G e n e r a t e"><input type="reset" name="Reset" value="R e s e t">
+
+</div>
+</form>
+</body>
+</html>
