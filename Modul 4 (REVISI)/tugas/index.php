@@ -3,6 +3,20 @@
 <html>
 
 <head>
+
+
+ <script language="JavaScript">
+    
+    function konfirm(id) // konfirmasi untuk hapus data
+    {
+        tanya = confirm('Apakah anda yakin ingin menghapus data dengan NIM '+ id + '?');
+        if (tanya == true)
+            return true;
+        else
+            return false;
+    }
+ </script>
+</head>
 <title> Akses dan Manipulasi Data </title>
 <style type="text/css">
 .even {
@@ -23,6 +37,8 @@
 		data_handler('?m=data');
 		?>
 
+<p>
+<a href="login.php">Logout</a>
 
 </body>
 

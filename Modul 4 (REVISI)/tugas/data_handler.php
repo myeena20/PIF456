@@ -31,13 +31,14 @@ function data_handler($root) {
                                                         
                                                         ?>
 
-<?php
+										<?php
                                                 } else {
                                                         echo 'Gagal menghapus data';
                                                 }
                                         } else {
                                                 show_admin_data($root);
                                         }
+										show_admin_data($root);
                                         break;
                                 default:
                                         show_admin_data($root);
@@ -89,8 +90,7 @@ $id = $row[0]; ?>
 				<td align="center">
 |<a href ="<?php echo $root;?>&amp;act=edit&amp;id=<?php echo $id;?>">
 Edit</a> |
-<a href ="delete.php"> Hapus
-</td>
+<a href ="<?php echo $root;?>&amp;act=del&amp;id=<?php echo $id;?>" onclick="return konfirm('<? echo $id;?> ')"> hapus </td>
 </tr>
 <?php
 $i++;
@@ -159,7 +159,9 @@ document.location.href="<?php echo $root;?>";
                         $alamat = $_POST['alamat'];
                         $res = mysql_query("UPDATE mahasiswa SET nim='$nim', nama='$nama', alamat='$alamat' WHERE nim='$id'");
                         if ($res) { ?>
-
+<script type="text/javascript">
+document.location.href="<?php echo $root;?>";
+</script>
 <?php
                 } else {
                         echo 'Gagal Modifikasi';
